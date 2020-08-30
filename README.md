@@ -46,6 +46,25 @@ Specify your API key in the application delegate ios/Runner/AppDelegate.m in XCo
 }
 @end
 ```
+Or in your swift code, specify your API key in the application delegate ios/Runner/AppDelegate.swift:
+```bash
+import UIKit
+import Flutter
+import GoogleMaps
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+  override func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    GMSServices.provideAPIKey("YOUR KEY HERE")
+    GeneratedPluginRegistrant.register(with: self)
+    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+  }
+}
+```
+
 You can now add a GoogleMap widget to your widget tree.
 
 The map view can be controlled with the GoogleMapController that is passed to the GoogleMap's onMapCreated callback.
